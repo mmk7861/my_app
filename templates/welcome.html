@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Welcome · {{ app_name }}{% endblock %}
+{% block body %}
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">C</span>{{ app_name }}</div>
+  <form action="{{ url_for('logout') }}" method="post">
+    <button class="secondary" type="submit">Sign out</button>
+  </form>
+</header>
+<main class="welcome-shell">
+  <section class="welcome-card">
+    <div class="success-icon" aria-hidden="true">✓</div>
+    <span class="eyebrow">Authentication successful</span>
+    <h1>Welcome, {{ username }}.</h1>
+    <p>You are signed in and ready to manage your service configuration.</p>
+    <div class="environment">
+      <div>
+        <span class="environment-label">Current environment</span>
+        <strong id="environment">Loading…</strong>
+      </div>
+      <span class="live-badge"><i></i> Healthy</span>
+    </div>
+  </section>
+</main>
+<script>
+  fetch("{{ url_for('public_config') }}")
+    .then((response) => response.json())
+    .then((config) => {
+      document.querySelector("#environment").textContent = config.environment;
+    })
+    .catch(() => {
+      document.querySelector("#environment").textContent = "Unavailable";
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Sign in · {{ app_name }}{% endblock %}
+{% block body %}
+<main class="shell">
+  <section class="intro">
+    <div class="brand"><span class="brand-mark">C</span>{{ app_name }}</div>
+    <div class="intro-copy">
+      <span class="eyebrow">Configuration, simplified</span>
+      <h1>One place to manage every environment.</h1>
+      <p>Securely access your service configuration and keep your applications moving.</p>
+    </div>
+    <p class="fine-print">Built for reliable teams.</p>
+  </section>
+
+  <section class="login-panel">
+    <form class="card" action="{{ url_for('login') }}" method="post">
+      <div class="card-heading">
+        <span class="status-dot"></span>
+        <span>Service online</span>
+      </div>
+      <h2>Welcome back</h2>
+      <p class="muted">Enter your credentials to continue.</p>
+
+      {% if error %}<div class="alert" role="alert">{{ error }}</div>{% endif %}
+
+      <label for="username">Username</label>
+      <input id="username" name="username" value="{{ username or '' }}" autocomplete="username" placeholder="admin" required autofocus>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+
+      <button type="submit">Sign in <span aria-hidden="true">→</span></button>
+      <p class="demo-note">Demo login: <code>admin</code> / <code>welcome123</code></p>
+    </form>
+  </section>
+</main>
+{% endblock %}
