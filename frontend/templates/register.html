@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Create account · {{ app_name }}{% endblock %}
+{% block body %}
+<main class="shell">
+  <section class="intro">
+    <div class="brand"><span class="brand-mark">C</span>{{ app_name }}</div>
+    <div class="intro-copy">
+      <span class="eyebrow">Get started</span>
+      <h1>Create your workspace account.</h1>
+      <p>Choose your credentials and start managing your service configuration.</p>
+    </div>
+    <p class="fine-print">Secure passwords. Simple access.</p>
+  </section>
+
+  <section class="login-panel">
+    <form class="card" action="{{ url_for('register') }}" method="post">
+      <div class="card-heading">
+        <span class="status-dot"></span>
+        <span>Registration open</span>
+      </div>
+      <h2>Create account</h2>
+      <p class="muted">Set up your username and password.</p>
+
+      {% if error %}<div class="alert" role="alert">{{ error }}</div>{% endif %}
+
+      <label for="username">Username</label>
+      <input id="username" name="username" value="{{ username or '' }}" autocomplete="username" minlength="3" maxlength="32" placeholder="your-name" required autofocus>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+
+      <label for="confirm_password">Confirm password</label>
+      <input id="confirm_password" name="confirm_password" type="password" autocomplete="new-password" minlength="8" placeholder="Enter it again" required>
+
+      <button type="submit">Create account <span aria-hidden="true">→</span></button>
+      <p class="auth-switch">Already registered? <a href="{{ url_for('index') }}">Sign in</a></p>
+    </form>
+  </section>
+</main>
+{% endblock %}

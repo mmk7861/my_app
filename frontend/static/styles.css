@@ -45,7 +45,7 @@ h1, h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.04em; }
 h1 { margin: 1rem 0; font-size: clamp(2.7rem, 6vw, 5.5rem); line-height: 1; }
 h2 { margin: 1rem 0 0.4rem; font-size: 2rem; }
 .intro-copy p, .welcome-card > p { max-width: 34rem; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
-.fine-print, .muted, .demo-note { color: var(--muted); }
+.fine-print, .muted, .demo-note, .auth-switch { color: var(--muted); }
 
 .card { width: min(100%, 28rem); padding: 2.2rem; border: 1px solid var(--line); border-radius: 1.5rem; background: var(--panel); box-shadow: 0 30px 80px rgba(0,0,0,.35); backdrop-filter: blur(20px); }
 .card-heading { display: flex; align-items: center; gap: 0.5rem; color: #6ee7b7; font-size: 0.82rem; }
@@ -56,6 +56,9 @@ input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139,92,246
 button { width: 100%; margin-top: 1.5rem; padding: 0.95rem 1.1rem; border: 0; border-radius: 0.75rem; color: white; background: linear-gradient(135deg, #7c3aed, #0891b2); font: 700 0.95rem inherit; cursor: pointer; }
 button span { float: right; }
 .demo-note { margin: 1.2rem 0 0; text-align: center; font-size: 0.78rem; }
+.auth-switch { margin: 1.2rem 0 0; text-align: center; font-size: 0.86rem; }
+.auth-switch a { color: #c4b5fd; font-weight: 600; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
 code { color: #c4b5fd; }
 .alert { margin-top: 1.25rem; padding: 0.8rem 1rem; border: 1px solid rgba(248,113,113,.3); border-radius: .7rem; color: #fca5a5; background: rgba(127,29,29,.2); font-size: .86rem; }
 
